@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        remotePatterns: [
+            {
+                hostname: "s2-receitas.glbimg.com"
+            }
+        ]
+    }
+};
 
 export default nextConfig;
