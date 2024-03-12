@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import AuthProvider from "./providers/auth";
 import { Navbar } from "./components/navbar/navbar";
+import { IngredientProvider } from "./context/ingredientsContext";
+import { Rodape } from "./components/rodape/rodape";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,10 +22,13 @@ export default function RootLayout({
       <body
         className={`${montserrat.className}`}
       >
-        <AuthProvider>
-          <Navbar />
-          {children}
-        </AuthProvider>
+        <IngredientProvider>
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <Rodape />
+          </AuthProvider>
+        </IngredientProvider>
       </body>
     </html>
   );

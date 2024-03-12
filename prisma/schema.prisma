@@ -14,10 +14,39 @@ datasource db {
 }
 
 model Product {
-  id          String  @id @default(cuid())
+  id          Int     @id @default(autoincrement())
   name        String?
   description String?
   imageUrl    String?
+  price       Float?
+  orders      Order[]
+}
+
+model Order {
+  id              Int               @id @default(autoincrement())
+  userId          String
+  productId       Int // Corrigido para o tipo Int
+  value           Float?
+  user            User              @relation(fields: [userId], references: [id])
+  product         Product           @relation(fields: [productId], references: [id])
+  OrderIngredient OrderIngredient[]
+}
+
+model Ingredient {
+  id              Int               @id @default(autoincrement())
+  name            String
+  value           Float?
+  step            String
+  OrderIngredient OrderIngredient[]
+}
+
+model OrderIngredient {
+  id           Int        @id @default(autoincrement())
+  orderId      Int
+  ingredientId Int
+  quantity     Int
+  order        Order      @relation(fields: [orderId], references: [id])
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
 }
 
 model Account {
@@ -54,6 +83,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  orders        Order[] // Relacionamento com pedidos
 }
 
 model VerificationToken {

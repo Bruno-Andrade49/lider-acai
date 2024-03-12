@@ -1,9 +1,7 @@
 "use client"
 
-import { Button } from "@/app/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
 import { Product } from "@prisma/client";
-import { ChevronLeftIcon, MapPinIcon, Menu, MenuIcon, StarIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -13,17 +11,12 @@ interface BarberShopInfoProps {
 
 const ProductInfoPage = ({ product }: BarberShopInfoProps) => {
 
-    const router = useRouter();
-
-    const handleBackClick = () => {
-        router.replace("/");
-    }
-
     return (
         <>
-            <div className="h-[250px] w-full relative">
+            <div className="h-24 w-full relative">
 
                 <Image
+                    priority={true}
                     src={product.imageUrl || ""}
                     fill
                     alt={product.name || ""}
@@ -36,7 +29,7 @@ const ProductInfoPage = ({ product }: BarberShopInfoProps) => {
 
             <div className="bg-[#ffffff] px-5 pt-3 pb-6 border-b border-solid border-secondary">
                 <h1 className="text-xl font-bold">{product.name}</h1>
-                
+
                 <div className="flex items-center gap-1 mt-2">
                     <StarIcon className="text-primary" size={18} />
                     <p className="text-sm">5,0 (899 avaliações)</p>

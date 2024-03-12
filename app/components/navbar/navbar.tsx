@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import SideMenu from './sideMenu'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
 import { Menu } from 'lucide-react'

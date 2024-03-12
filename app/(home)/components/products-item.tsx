@@ -26,10 +26,7 @@ const ProductsItem = ({ product }: ProductsItemProps) => {
                     <Image
                         alt={product.name || ''}
                         src={product.imageUrl || ''}
-                        style={{
-                            objectFit: "cover",
-                        }}
-                        fill
+                        layout="fill"
                         className="rounded-2xl"
                     />
                 </div>
