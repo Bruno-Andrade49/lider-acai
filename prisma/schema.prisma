@@ -26,10 +26,12 @@ model Order {
   id              Int               @id @default(autoincrement())
   userId          String
   productId       Int // Corrigido para o tipo Int
+  adressId        Int
   value           Float?
   user            User              @relation(fields: [userId], references: [id])
   product         Product           @relation(fields: [productId], references: [id])
   OrderIngredient OrderIngredient[]
+  adress          Adress            @relation(fields: [adressId], references: [id])
 }
 
 model Ingredient {
@@ -38,6 +40,17 @@ model Ingredient {
   value           Float?
   step            String
   OrderIngredient OrderIngredient[]
+}
+
+model Adress {
+  id          Int     @id @default(autoincrement())
+  name        String
+  num         Int
+  bairro      String
+  complemento String
+  userId      String
+  user        User    @relation(fields: [userId], references: [id])
+  Order       Order[]
 }
 
 model OrderIngredient {
@@ -83,7 +96,8 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  orders        Order[] // Relacionamento com pedidos
+  orders        Order[] 
+  adress        Adress[] 
 }
 
 model VerificationToken {

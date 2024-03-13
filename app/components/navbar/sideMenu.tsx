@@ -6,6 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { SheetHeader, SheetTitle } from "../ui/sheet";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
+import { FaAddressCard } from "react-icons/fa6";
 
 const SideMenu = () => {
 
@@ -62,10 +63,22 @@ const SideMenu = () => {
                 </Button>
 
                 {data?.user && (
+
                     <Button variant="outline" className="justify-start" asChild>
                         <Link href="/pedidos">
                             <CalendarIcon size={18} className="mr-2" />
                             Pedidos
+                        </Link>
+                    </Button>
+
+
+                )}
+                {data?.user && (
+
+                    <Button variant="outline" className="justify-start" asChild>
+                        <Link href="/adress">
+                            <FaAddressCard size={18} className="mr-2" />
+                            Endereços
                         </Link>
                     </Button>
                 )}

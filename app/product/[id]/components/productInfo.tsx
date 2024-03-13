@@ -1,9 +1,6 @@
-"use client"
-
 import { Product } from "@prisma/client";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 interface BarberShopInfoProps {
     product: Product;
@@ -13,17 +10,17 @@ const ProductInfoPage = ({ product }: BarberShopInfoProps) => {
 
     return (
         <>
-            <div className="h-24 w-full relative">
+            <div className="w-full h-[250px] relative">
 
                 <Image
                     priority={true}
                     src={product.imageUrl || ""}
-                    fill
                     alt={product.name || ""}
                     style={{
                         objectFit: "cover",
                     }}
                     className="opacity-85"
+                    fill
                 />
             </div>
 
