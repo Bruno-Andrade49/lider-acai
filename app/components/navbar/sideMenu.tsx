@@ -10,11 +10,10 @@ import { FaAddressCard } from "react-icons/fa6";
 
 const SideMenu = () => {
 
-
     const { data } = useSession();
 
-    const handleLogoutClick = () => {
-        signOut();
+    const handleLogoutClick = async () => {
+        await signOut();
     }
 
     const handleLoginClick = () => {

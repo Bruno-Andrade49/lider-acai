@@ -1,16 +1,20 @@
 import React from 'react'
-import { Button } from '../components/ui/button'
 import { db } from '../lib/prisma';
 import { getServerSession } from 'next-auth';
 import authOptions from '../lib/auth';
 import { Adress } from '@prisma/client';
 import { redirect } from 'next/navigation';
+import { FormAdress } from './createAdress/formAdress';
+import { FaClosedCaptioning } from 'react-icons/fa6';
+import { Badge } from '@/components/ui/badge';
+import { X } from 'lucide-react';
+
 
 const AdressPage = async () => {
 
     const session = await getServerSession(authOptions);
 
-    if(!session?.user) {
+    if (!session?.user) {
         redirect("/")
     }
 
@@ -37,40 +41,39 @@ const AdressPage = async () => {
         <>
             <div>
 
-                <div className='p-6'>
-                    <Button className='w-full' variant={'secondary'}>
-                        Criar novo endereço!
-                    </Button>
-                </div>
-
-             
+                <FormAdress />
 
                 <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
                     {adress.map((endereço: Adress) => (
                         <div key={endereço.id} className="min-w-[300px] max-w-[300px] max-h-[300px] min-h-[300px]">
+
                             <div className='bg-white rounded-lg p-6'>
+                                <div className="z-50 justify-between flex">
+                                    <h1 className='font-bold text-green-950'>Resumo</h1>
+                                    <X size={18} className='text-green-950 relative top-1' />
+                                </div>
                                 <h2 className='font-bold mt-2 overflow-hidden text-ellipsis text-nowrap'>
-                                <span className='font-light'>Endereço: </span>
+                                    <span className='font-light'>Endereço: </span>
                                     {endereço.name}
                                 </h2>
                                 <h2 className='font-bold mt-2 overflow-hidden text-ellipsis text-nowrap'>
-                                <span className='font-light'>Numero: </span>
+                                    <span className='font-light'>Numero: </span>
                                     {endereço.num}
                                 </h2>
-                                
+
                                 <h2 className='font-bold mt-2 overflow-hidden text-ellipsis text-nowrap'>
                                     <span className='font-light'>Bairro: </span>
                                     {endereço.bairro}
                                 </h2>
                                 <h2 className='font-bold mt-2 overflow-hidden text-ellipsis text-nowrap'>
-                                <span className='font-light'>Complemento: </span>
+                                    <span className='font-light'>Complemento: </span>
                                     {endereço.complemento}
                                 </h2>
                             </div>
                         </div>
                     ))}
                 </div>
-          
+
             </div>
         </>
     )
