@@ -88,7 +88,7 @@ export const FormAdress = () => {
 
                                 <div className='flex flex-col gap-1'>
                                     <Input placeholder='Numero' type='number' {...register("num")} />
-                                    {errors.num && <span className='text-start text-red-700'>{errors.num.message}</span>}
+                                    {errors.num && <span className='text-start text-red-700'>{errors.num.message as string}</span>}
                                 </div>
 
                                 <div className='flex flex-col gap-1'>
