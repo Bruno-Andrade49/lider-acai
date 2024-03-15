@@ -80,17 +80,26 @@ export const FormAdress = () => {
                         </DialogTitle>
                         <DialogDescription>
                             <form onSubmit={handleSubmit(handleAdress)} className='flex flex-col gap-2'>
-                                <Input placeholder='Rua' type='text' {...register("name")} />
-                                {errors.name && <span className='text-start text-red-700'>{errors.name.message}</span>}
 
-                                <Input placeholder='Numero' type='number' {...register("num")} />
-                                {errors.num && <span className='text-start text-red-700'>{errors.num.message}</span>}
+                                <div className='flex flex-col gap-1'>
+                                    <Input placeholder='Rua' type='text' {...register("name")} />
+                                    {errors.name && <span className='text-start text-red-700'>{errors.name.message}</span>}
+                                </div>
 
-                                <Input placeholder='Bairro' type='text' {...register("bairro")} />
-                                {errors.bairro && <span className='text-start text-red-700'>{errors.bairro.message}</span>}
+                                <div className='flex flex-col gap-1'>
+                                    <Input placeholder='Numero' type='number' {...register("num")} />
+                                    {errors.num && <span className='text-start text-red-700'>{errors.num.message}</span>}
+                                </div>
 
-                                <Input placeholder='Complemento' type='text' {...register("complemento")} />
-                                {errors.complemento && <span className='text-start text-red-700'> {errors.complemento.message}</span>}
+                                <div className='flex flex-col gap-1'>
+                                    <Input placeholder='Bairro' type='text' {...register("bairro")} />
+                                    {errors.bairro && <span className='text-start text-red-700'>{errors.bairro.message}</span>}
+                                </div>
+
+                                <div className='flex flex-col gap-1'>
+                                    <Input placeholder='Complemento' type='text' {...register("complemento")} />
+                                    {errors.complemento && <span className='text-start text-red-700'> {errors.complemento.message}</span>}
+                                </div>
 
                                 <div className='flex flex-row gap-4 w-full pt-4'>
                                     <Button type='button' variant={"destructive"} className='w-full' onClick={() => setModalOpen(false)}>
@@ -98,7 +107,7 @@ export const FormAdress = () => {
                                     </Button>
 
 
-                                    <Button variant={"default"} className='w-full' disabled={isCreateLoading} >
+                                    <Button variant={"default"} className='w-full bg-green-500' disabled={isCreateLoading} >
                                         {isCreateLoading && (
                                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                         )}

@@ -5,9 +5,7 @@ import authOptions from '../lib/auth';
 import { Adress } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import { FormAdress } from './createAdress/formAdress';
-import { FaClosedCaptioning } from 'react-icons/fa6';
-import { Badge } from '@/components/ui/badge';
-import { X } from 'lucide-react';
+import { DeleteAdress } from './deleteAdress/deleteAdress';
 
 
 const AdressPage = async () => {
@@ -50,7 +48,8 @@ const AdressPage = async () => {
                             <div className='bg-white rounded-lg p-6'>
                                 <div className="z-50 justify-between flex">
                                     <h1 className='font-bold text-green-950'>Resumo</h1>
-                                    <X size={18} className='text-green-950 relative top-1' />
+                                    <DeleteAdress id={endereço.id}  />
+
                                 </div>
                                 <h2 className='font-bold mt-2 overflow-hidden text-ellipsis text-nowrap'>
                                     <span className='font-light'>Endereço: </span>

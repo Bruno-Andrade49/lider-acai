@@ -27,7 +27,9 @@ export default function RootLayout({
         <IngredientProvider>
           <AuthProvider>
             <Navbar />
-            {children}
+            <div className="flex-1">
+              {children}
+            </div>
             <Rodape />
           </AuthProvider>
         </IngredientProvider>
