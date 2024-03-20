@@ -3,15 +3,16 @@
 
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent } from "@/app/components/ui/card";
-import { Product } from "@prisma/client";
+import { Product, User } from "@prisma/client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 interface ProductsItemProps {
     product: Product;
+    user: any
 }
 
-const ProductsItem = ({ product }: ProductsItemProps) => {
+const ProductsItem = ({ product, user }: ProductsItemProps) => {
 
     const route = useRouter();
 
@@ -33,7 +34,7 @@ const ProductsItem = ({ product }: ProductsItemProps) => {
 
                 <div className="px-2 pb-3">
                     <h2 className="font-bold mt-2 overflow-hidden text-ellipsis text-nowrap text-rose-950">{product.name}</h2>
-                    <Button className="w-full mt-3" variant="default" onClick={handleBookingClick}>
+                    <Button className="w-full mt-3" variant="default" onClick={handleBookingClick} disabled={!user}>
                         Comprar
                     </Button>
                 </div>

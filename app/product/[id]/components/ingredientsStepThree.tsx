@@ -12,10 +12,16 @@ export const IngredientsStepThree: React.FC<IngredientsProps> = ({ ingredient })
     const { carrinho, addIngredient3, removeIngredient3 } = useIngredientContext();
 
     const handleClick = () => {
-        if (carrinho.includes(ingredient.name)) {
-            removeIngredient3(ingredient.name);
+        if (carrinho.some(item => item.name === ingredient.name)) {
+            removeIngredient3({
+                name: ingredient.name,
+                qtd: 0
+            });
         } else {
-            addIngredient3(ingredient.name);
+            addIngredient3({
+                name: ingredient.name,
+                qtd: 1
+            });
         }
     };
 
@@ -26,14 +32,14 @@ export const IngredientsStepThree: React.FC<IngredientsProps> = ({ ingredient })
                     onClick={handleClick}
                     className='cursor-pointer mr-2 font-semibold text-sm'
                     style={{
-                        opacity: carrinho.includes(ingredient.name) ? '0.5' : '1',
+                        opacity: carrinho.some(item => item.name === ingredient.name) ? '0.5' : '1',
                     }}
                 >
                     {ingredient.name}
                 </div>
 
                 <div onClick={handleClick} className='cursor-pointer'>
-                    {carrinho.includes(ingredient.name) ? <MinusCircle /> : <PlusCircle />}
+                    {carrinho.some(item => item.name === ingredient.name) ? <MinusCircle /> : <PlusCircle />}
                 </div>
             </div>
 

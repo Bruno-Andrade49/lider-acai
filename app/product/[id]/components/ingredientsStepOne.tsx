@@ -12,10 +12,16 @@ export const IngredientsStepOne: React.FC<IngredientsProps> = ({ ingredient }) =
     const { carrinho, addIngredient, removeIngredient } = useIngredientContext();
 
     const handleClick = () => {
-        if (carrinho.includes(ingredient.name)) {
-            removeIngredient(ingredient.name);
+        if (carrinho.some(item => item.name === ingredient.name)) {
+            removeIngredient({
+                name: ingredient.name,
+                qtd: 0
+            });
         } else {
-            addIngredient(ingredient.name);
+            addIngredient({
+                name: ingredient.name,
+                qtd: 1
+            });
         }
     };
 
@@ -26,17 +32,16 @@ export const IngredientsStepOne: React.FC<IngredientsProps> = ({ ingredient }) =
                     onClick={handleClick}
                     className='cursor-pointer mr-2 font-semibold text-sm'
                     style={{
-                        opacity: carrinho.includes(ingredient.name) ? '0.5' : '1',
+                        opacity: carrinho.some(item => item.name === ingredient.name) ? '0.5' : '1',
                     }}
                 >
                     {ingredient.name}
                 </div>
 
                 <div onClick={handleClick} className='cursor-pointer'>
-                    {carrinho.includes(ingredient.name) ? <MinusCircle /> : <PlusCircle />}
+                    {carrinho.some(item => item.name === ingredient.name) ? <MinusCircle /> : <PlusCircle />}
                 </div>
             </div>
-
         </>
     );
 };

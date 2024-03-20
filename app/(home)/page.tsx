@@ -17,6 +17,7 @@ export default async function Home() {
   ])
 
   const session = await getServerSession(authOptions);
+  
 
   return (
     <>
@@ -43,7 +44,7 @@ export default async function Home() {
         <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
           {products.map((product: any) => (
             <div key={product.id} className="min-w-[167px] max-w-[167px]">
-              <ProductsItem key={product.id} product={product} />
+              <ProductsItem key={product.id} product={product} user={session?.user}/>
             </div>
           ))}
         </div>
@@ -55,7 +56,7 @@ export default async function Home() {
         <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
           {products.map((product: any) => (
             <div key={product.id} className="min-w-[167px] max-w-[167px]">
-              <ProductsItem key={product.id} product={product} />
+              <ProductsItem key={product.id} product={product} user={session?.user} />
             </div>
           ))}
         </div>

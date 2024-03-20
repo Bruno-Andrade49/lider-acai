@@ -11,11 +11,11 @@ import {
     DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer"
-import { FaGlassWater } from "react-icons/fa6";
 import { Button } from '@/app/components/ui/button'
 import { useIngredientContext } from '@/app/context/ingredientsContext';
 import { GlassWater, ShoppingCart } from 'lucide-react';
 import { Product } from '@prisma/client';
+import { useRouter } from 'next/navigation';
 
 
 interface ProductProps {
@@ -24,6 +24,14 @@ interface ProductProps {
 
 export const Cart = ({ product }: ProductProps) => {
     const { carrinho } = useIngredientContext();
+
+    const route = useRouter();
+
+    const handleOrderConfirm = () => {
+        localStorage.setItem('carrinho', JSON.stringify(carrinho))
+        
+        route.push(`/product/${product.id}/orderConfirmation`)
+    }
 
     return (
         <>
@@ -60,7 +68,7 @@ export const Cart = ({ product }: ProductProps) => {
                             ) : (
                                 <div className='m-auto text-center py-6 font-bold text-lg text-green-800'>
                                     {carrinho.map((item) => (
-                                        <div key={item}>{item}</div>
+                                        <div key={item.name}>{item.name}</div>
                                     ))}
                                 </div>
                             )}
@@ -72,7 +80,7 @@ export const Cart = ({ product }: ProductProps) => {
 
                     </DrawerHeader>
                     <DrawerFooter className="flex flex-row w-full gap-3 mt-6 justify-center">
-                        <Button className=''>Confirmar</Button>
+                        <Button onClick={handleOrderConfirm}>Confirmar</Button>
                         <DrawerClose>
                             <Button className='w-full' variant={'destructive'}>Cancelar</Button>
                         </DrawerClose>
