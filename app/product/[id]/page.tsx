@@ -20,8 +20,6 @@ interface ProductDetailsPageProps {
 
 const BarberDetailsPage = async ({ params }: ProductDetailsPageProps) => {
 
-    const session = await getServerSession(authOptions);
-
     if (!params.id) {
         // TODO: Redirecionar ou tratar caso não haja um ID
         return null;

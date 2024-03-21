@@ -1,7 +1,9 @@
 import ProductsItem from '@/app/(home)/components/products-item';
 import Search from '@/app/(home)/components/search';
 import { db } from '@/app/lib/prisma';
+import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
+import authOptions from '../lib/auth';
 
 interface ProductPageProps {
     searchParams: {
@@ -10,6 +12,8 @@ interface ProductPageProps {
 }
 
 const ProductPage = async ({ searchParams }: ProductPageProps) => {
+
+    const session = await getServerSession(authOptions);
 
     if (!searchParams.search) {
         return redirect("/");
@@ -35,7 +39,7 @@ const ProductPage = async ({ searchParams }: ProductPageProps) => {
                 <div className="grid grid-cols-2 gap-4">
                     {products.map((product: any) => (
                         <div key={product.id} className="w-full">
-                            <ProductsItem product={product} />
+                            <ProductsItem product={product} user={session?.user} />
                         </div>
                     ))}
                 </div>
