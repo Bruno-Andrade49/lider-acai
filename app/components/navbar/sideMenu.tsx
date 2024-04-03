@@ -19,6 +19,7 @@ const SideMenu = () => {
     const handleLoginClick = () => {
         signIn("google");
     }
+    
 
     return (
         <>

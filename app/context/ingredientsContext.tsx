@@ -58,47 +58,45 @@ export const IngredientProvider: React.FC<IngredientProviderProps> = ({ children
   const [carrinho, setCarrinho] = useState<IngredientOrder[]>([]);
 
 
-  //PASS0 01
-
-  const addIngredient = (IngredientOrder: IngredientOrder) => {
-    if (carrinho.length < 2 && !carrinho.some(item => item.name === IngredientOrder.name)) {
-      setCarrinho(prevCarrinho => [...prevCarrinho, IngredientOrder]);
-      setIngredients(prevIngredients => [...prevIngredients, IngredientOrder]);
+  const addIngredient = (ingredient: IngredientOrder) => {
+    if (selectedCount < 2 && !carrinho.some(item => item.name === ingredient.name)) {
+      setCarrinho(prevCarrinho => [...prevCarrinho, ingredient]);
+      setIngredients(prevIngredients => [...prevIngredients, ingredient]);
       setSelectedCount(prevCount => prevCount + 1);
     }
   };
 
-  const removeIngredient = (IngredientOrder: IngredientOrder) => {
-    setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.name !== IngredientOrder.name));
-    setIngredients(prevIngredients => prevIngredients.filter(item => item.name !== IngredientOrder.name));
+  const removeIngredient = (ingredient: IngredientOrder) => {
+    setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.name !== ingredient.name));
+    setIngredients(prevIngredients => prevIngredients.filter(item => item.name !== ingredient.name));
     setSelectedCount(prevCount => prevCount - 1);
   };
 
-  const addIngredient2 = (IngredientOrder: IngredientOrder) => {
-    if (selectedCount2 < 2 && !carrinho.some(item => item.name === IngredientOrder.name)) {
-      setCarrinho(prevCarrinho => [...prevCarrinho, IngredientOrder]);
-      setIngredients2(prevIngredients => [...prevIngredients, IngredientOrder]);
+  const addIngredient2 = (ingredient: IngredientOrder) => {
+    if (selectedCount2 < 2 && !carrinho.some(item => item.name === ingredient.name)) {
+      setCarrinho(prevCarrinho => [...prevCarrinho, ingredient]);
+      setIngredients2(prevIngredients => [...prevIngredients, ingredient]);
       setSelectedCount2(prevCount => prevCount + 1);
     }
   };
 
-  const removeIngredient2 = (IngredientOrder: IngredientOrder) => {
-    setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.name !== IngredientOrder.name));
-    setIngredients2(prevIngredients => prevIngredients.filter(item => item.name !== IngredientOrder.name));
+  const removeIngredient2 = (ingredient: IngredientOrder) => {
+    setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.name !== ingredient.name));
+    setIngredients2(prevIngredients => prevIngredients.filter(item => item.name !== ingredient.name));
     setSelectedCount2(prevCount => prevCount - 1);
   };
 
-  const addIngredient3 = (IngredientOrder: IngredientOrder) => {
-    if (selectedCount3 < 2 && !carrinho.some(item => item.name === IngredientOrder.name)) {
-      setCarrinho(prevCarrinho => [...prevCarrinho, IngredientOrder]);
-      setIngredients3(prevIngredients => [...prevIngredients, IngredientOrder]);
+  const addIngredient3 = (ingredient: IngredientOrder) => {
+    if (selectedCount3 < 2 && !carrinho.some(item => item.name === ingredient.name)) {
+      setCarrinho(prevCarrinho => [...prevCarrinho, ingredient]);
+      setIngredients3(prevIngredients => [...prevIngredients, ingredient]);
       setSelectedCount3(prevCount => prevCount + 1);
     }
   };
 
-  const removeIngredient3 = (IngredientOrder: IngredientOrder) => {
-    setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.name !== IngredientOrder.name));
-    setIngredients3(prevIngredients => prevIngredients.filter(item => item.name !== IngredientOrder.name));
+  const removeIngredient3 = (ingredient: IngredientOrder) => {
+    setCarrinho(prevCarrinho => prevCarrinho.filter(item => item.name !== ingredient.name));
+    setIngredients3(prevIngredients => prevIngredients.filter(item => item.name !== ingredient.name));
     setSelectedCount3(prevCount => prevCount - 1);
   };
 
