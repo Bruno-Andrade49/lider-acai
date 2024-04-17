@@ -11,7 +11,7 @@ import { FaAddressCard } from "react-icons/fa6";
 const SideMenu = () => {
 
     const { data } = useSession();
-
+    
     const handleLogoutClick = async () => {
         await signOut();
     }
@@ -19,7 +19,7 @@ const SideMenu = () => {
     const handleLoginClick = () => {
         signIn("google");
     }
-    
+
 
     return (
         <>
@@ -82,6 +82,18 @@ const SideMenu = () => {
                         </Link>
                     </Button>
                 )}
+
+                {data?.user?.role === "ADMIN" && (
+                    <Button variant="outline" className="justify-start" asChild>
+                        <Link href="/adress">
+                            <FaAddressCard size={18} className="mr-2" />
+                            Página do administrador
+                        </Link>
+                    </Button>
+                )}
+
+
+
             </div>
         </>
     );

@@ -4,6 +4,9 @@ const nextConfig = {
         remotePatterns: [
             {
                 hostname: "s2-receitas.glbimg.com"
+            },
+            {
+                hostname: "lh3.googleusercontent.com"
             }
         ]
     }

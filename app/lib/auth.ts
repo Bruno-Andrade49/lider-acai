@@ -21,6 +21,22 @@ const authOptions: NextAuthOptions = {
             }
         })
     ],
+    callbacks: {
+        async session({ session, user }) {
+            return {
+                ...session,
+                user: {
+                    ...session.user,
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    image: user.image,
+                    role: user.role,
+                }
+
+            }
+        }, 
+    },
 
     secret: process.env.NEXT_AUTH_SECRET
 
