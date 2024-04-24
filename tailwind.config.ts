@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'login-bg' : "url('/assets/login/bg-login.jpg')"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

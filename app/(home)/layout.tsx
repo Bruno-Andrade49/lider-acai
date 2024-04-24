@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import AuthProvider from "./providers/auth";
-import { Navbar } from "./components/navbar/navbar";
-import { IngredientProvider } from "./context/ingredientsContext";
-import { Rodape } from "./components/rodape/rodape";
-import "./globals.css";
+import AuthProvider from "../providers/auth";
+import { Navbar } from "../components/navbar/navbar";
+import { IngredientProvider } from "../context/ingredientsContext";
+import { Rodape } from "../components/rodape/rodape";
+import "../globals.css"
 
 
 const montserrat = Montserrat({ subsets: ["latin"] });
