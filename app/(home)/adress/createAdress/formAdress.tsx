@@ -2,7 +2,7 @@
 
 import { Input } from '@/app/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogClose } from '@/components/ui/dialog'
+import { Dialog } from '@/components/ui/dialog'
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'

@@ -1,11 +1,11 @@
 import React from 'react'
-import { db } from '../lib/prisma';
 import { getServerSession } from 'next-auth';
-import authOptions from '../lib/auth';
 import { Adress } from '@prisma/client';
 import { redirect } from 'next/navigation';
 import { FormAdress } from './createAdress/formAdress';
 import { DeleteAdress } from './deleteAdress/deleteAdress';
+import authOptions from '@/app/lib/auth';
+import { db } from '@/app/lib/prisma';
 
 
 const AdressPage = async () => {

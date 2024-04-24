@@ -4,8 +4,8 @@ import { AdressSelect } from "./adressSelect/adressSelect";
 import { getServerSession } from "next-auth";
 import authOptions from "@/app/lib/auth";
 import { redirect } from "next/navigation";
-import { FormAdress } from "@/app/adress/createAdress/formAdress";
 import { Button } from "@/components/ui/button";
+import { FormAdress } from "@/app/(home)/adress/createAdress/formAdress";
 
 const PageOrderConfirmation = async () => {
 
