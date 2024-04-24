@@ -1,9 +1,9 @@
 import ProductsItem from '@/app/(home)/components/products-item';
 import Search from '@/app/(home)/components/search';
+import authOptions from '@/app/lib/auth';
 import { db } from '@/app/lib/prisma';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import authOptions from '../lib/auth';
 
 interface ProductPageProps {
     searchParams: {
