@@ -1,43 +1,16 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import Image from "next/image"
+import NavbarAdm from "../components/navbar/navbarAdm";
 
 const AdmPage = () => {
-    return (
-        <div className="bg-login-bg w-full h-screen bg-cover flex justify-center items-center">
+  return (
+    <>
+      <NavbarAdm />
+      <div className="w-full h-full flex flex-row justify-center items-center bg-gray-100">
+        <h1 className="text-4xl font-extrabold text-red-950 shadow-lg p-5 rounded-lg">
+          Adm Page
+        </h1>
+      </div>
+    </>
+  );
+};
 
-            <div className="w-72 h-96 bg-white rounded-lg p-8 flex flex-col justify-between items-center">
-
-                <Image
-                    src="/assets/logo.png"
-                    alt="Logo"
-                    width={100}
-                    height={100}
-                    priority
-                />
-
-                <Input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full my-4" 
-                />
-
-                <Input
-                    type="password"
-                    placeholder="Password"
-                    className="w-full my-4" 
-                />
-
-                <Button
-                    className="w-full my-4 bg-pink-950 text-white" 
-                >
-                    Entrar
-                </Button>
-
-            </div>
-
-        </div>
-    )
-}
-
-export default AdmPage
+export default AdmPage;
