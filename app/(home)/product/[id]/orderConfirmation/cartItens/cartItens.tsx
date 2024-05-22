@@ -16,6 +16,7 @@ import { DeleteIcon } from "lucide-react";
 export const CartItens = () => {
 
     const [ingredientes, setIngredientes] = useState<IngredientOrder[]>([]);
+    const [product, setProducts] = useState([]);
 
     useEffect(() => {
         const carrinhoLocalStorage = localStorage.getItem('carrinho');
@@ -23,6 +24,10 @@ export const CartItens = () => {
             setIngredientes(JSON.parse(carrinhoLocalStorage));
         }
 
+        const productLocalStorage = localStorage.getItem('product');
+        if (productLocalStorage) {
+            setProducts(JSON.parse(productLocalStorage));
+        }
     }, []);
 
     const handleDeleteItemCart = (name: string) => {
@@ -57,7 +62,7 @@ export const CartItens = () => {
                         <TableCell colSpan={1}>Total</TableCell>
                         <TableCell className="text-right" colSpan={0}>
                             <div className='relative left-14'>
-                                {ingredientes.length} Ingredientes
+                               R$ {(product.price)}
                             </div>
                         </TableCell>
                         <TableCell />

@@ -1,41 +1,40 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 
 const ButtonOrderConfirmation = () => {
-    const handleFinalizeOrder = () => {
-        const cartItems = JSON.parse(localStorage.getItem("carrinho") || "[]");
-        const selectedAddress = JSON.parse(localStorage.getItem("selectedAddress") || "{}");
+  const handleFinalizeOrder = () => {
+    const cartItems = JSON.parse(localStorage.getItem("carrinho") || "[]");
+    const produto = JSON.parse(localStorage.getItem("product") || "[]");
+    const selectedAddress = JSON.parse(
+      localStorage.getItem("selectedAddress") || "{}"
+    );
 
-        let message = "*Meu pedido:*\n";
-        let total = 0;
-        cartItems.forEach((item : any) => {
-          message += `- ${item.qtd}x ${item.name}\n`;
-          
-          if (typeof item.qtd === 'number' && typeof item.price === 'number') {
-            total += item.qtd * item.price; 
-          } else {
-            console.log('Invalid item quantity or price:', item.qtd, item.price);
-          }
-        });
+    let message = "*Meu pedido:*\n";
+    let total = 0;
+    cartItems.forEach((item: any) => {
+      message += `- ${item.qtd}x ${item.name}\n`;
 
-        message += `\n*Total: R$ ${total.toFixed(2)}*\n`; 
+      total = produto.price;
+    });
 
-        if (selectedAddress) {
-          message += "\n*Endereço de Entrega:*\n";
-          message += `${selectedAddress.name}, ${selectedAddress.num}\n`;
-          message += `${selectedAddress.bairro}\n`;
-          if (selectedAddress.complemento) {
-            message += `${selectedAddress.complemento}\n`;
-          }
-        }
+    message += `\n*Total: R$ ${total.toFixed(2)}*\n`;
 
-        const encodedMessage = encodeURIComponent(message);
+    if (selectedAddress) {
+      message += "\n*Endereço de Entrega:*\n";
+      message += `${selectedAddress.name}, ${selectedAddress.num}\n`;
+      message += `${selectedAddress.bairro}\n`;
+      if (selectedAddress.complemento) {
+        message += `${selectedAddress.complemento}\n`;
+      }
+    }
 
-        const whatsappUrl = `https://wa.me/+558394045922?text=${encodedMessage}`;
+    const encodedMessage = encodeURIComponent(message);
 
-        window.location.href = whatsappUrl;
-      };
+    const whatsappUrl = `https://wa.me/+558394045922?text=${encodedMessage}`;
+
+    window.location.href = whatsappUrl;
+  };
 
   return (
     <div className="mt-6 px-3">

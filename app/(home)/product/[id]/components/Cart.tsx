@@ -29,6 +29,7 @@ export const Cart = ({ product }: ProductProps) => {
 
     const handleOrderConfirm = () => {
         localStorage.setItem('carrinho', JSON.stringify(carrinho))
+        localStorage.setItem('product', JSON.stringify(product))
         
         route.push(`/product/${product.id}/orderConfirmation`)
     }
