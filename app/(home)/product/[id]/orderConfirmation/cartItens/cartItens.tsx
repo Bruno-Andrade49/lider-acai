@@ -12,11 +12,12 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { DeleteIcon } from "lucide-react";
+import { Product } from "@prisma/client";
 
 export const CartItens = () => {
 
     const [ingredientes, setIngredientes] = useState<IngredientOrder[]>([]);
-    const [product, setProducts] = useState([]);
+    const [product, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
         const carrinhoLocalStorage = localStorage.getItem('carrinho');
@@ -62,7 +63,7 @@ export const CartItens = () => {
                         <TableCell colSpan={1}>Total</TableCell>
                         <TableCell className="text-right" colSpan={0}>
                             <div className='relative left-14'>
-                               R$ {(product.price)}
+                            R$ {product.price.toFixed(2)}
                             </div>
                         </TableCell>
                         <TableCell />
