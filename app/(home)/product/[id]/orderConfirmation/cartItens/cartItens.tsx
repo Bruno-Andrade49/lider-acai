@@ -62,7 +62,7 @@ export const CartItens = () => {
                         <TableCell colSpan={1}>Total</TableCell>
                         <TableCell className="text-right" colSpan={0}>
                             <div className='relative left-14'>
-                            {product.price !== null ? `R$ ${product.price.toFixed(2)}` : 'Preço indisponível'}
+                            {product.price !== null ? `R$ ${product.price}` : 'Preço indisponível'}
                             </div>
                         </TableCell>
                         <TableCell />
