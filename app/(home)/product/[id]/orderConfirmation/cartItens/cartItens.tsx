@@ -12,7 +12,9 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { DeleteIcon } from "lucide-react";
-import { Product } from "@prisma/client";
+interface Product {
+    price: number | null;
+  }
 
 export const CartItens = () => {
 
