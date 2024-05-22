@@ -12,14 +12,11 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { DeleteIcon } from "lucide-react";
-interface Product {
-    price: number | null;
-  }
 
 export const CartItens = () => {
 
     const [ingredientes, setIngredientes] = useState<IngredientOrder[]>([]);
-    const [product, setProducts] = useState<Product[]>([]);
+    const [product, setProducts] = useState<any>([]);
 
     useEffect(() => {
         const carrinhoLocalStorage = localStorage.getItem('carrinho');
