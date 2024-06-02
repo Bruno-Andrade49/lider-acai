@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/table"
 import { DeleteIcon } from "lucide-react";
 
+
 export const CartItens = () => {
 
     const [ingredientes, setIngredientes] = useState<IngredientOrder[]>([]);

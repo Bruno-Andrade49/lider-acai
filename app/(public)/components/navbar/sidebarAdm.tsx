@@ -68,7 +68,7 @@ const SidebarAdm = () => {
               </Button>
 
               <Button variant="outline" className="justify-start" asChild>
-                <Link href="/produtos">
+                <Link href="/products">
                   <FaAddressCard size={18} className="mr-2" />
                   Produtos
                 </Link>

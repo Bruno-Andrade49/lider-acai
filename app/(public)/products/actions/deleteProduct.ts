@@ -3,14 +3,14 @@
 import { db } from "@/app/lib/prisma"
 import { revalidatePath } from "next/cache";
 
-export const CancelAdress = async (id: number) => {
+export const DeleteProduct = async (id: number) => {
 
-    await db.adress.delete({
+    await db.product.delete({
         where: {
             id: id
         }
     })
 
-    revalidatePath("/adress");
+    revalidatePath("/product");
 }
 

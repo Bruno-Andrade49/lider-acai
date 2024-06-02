@@ -3,6 +3,7 @@ import { Rodape } from "../components/rodape/rodape";
 const montserrat = Montserrat({ subsets: ["latin"] });
 import "../globals.css";
 import AuthProvider from "../providers/auth";
+import NavbarAdm from "./components/navbar/navbarAdm";
 
 export const metadata = {
   title: "ADM PAGE",
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${montserrat.className}`}
       >
         <AuthProvider>
+          <NavbarAdm />
           {children}
           <Rodape />
         </AuthProvider>
